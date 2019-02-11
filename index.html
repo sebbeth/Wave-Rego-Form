@@ -1,20 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Wave Registration</title>
+<head>
+  <title>Wave Registration</title>
 
-      <link rel="stylesheet" href="/bootstrap-4.2.1/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/resources/bootstrap-4.2.1/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/resources/css.css" >
 
-  </head>
+</head>
 
-  <body>
-    <div class="container">
-      <h1>Wave 2020 Registration</h1>
-    </div>
-    </body>
+<body>
+  <header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+      </video>
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3">Wave Kids</h1>
+            <p class="lead mb-0">2020 Registration</p>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="/bootstrap-4.2.1/js/bootstrap.min.js" ></script>
+    <section class="my-5">
+      <form action="process.php" method="POST">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <p>Info for parents...   The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+              <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
+            </div>
+          </div>
+          <hr class="my-5">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <h2>Primary Contact Details</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <div class="row form-group">
+                <div class="col">
+                  <label for="firstname">Firstname</label>
+                  <input id="firstname" type="text" class="form-control" placeholder="John">
+                </div>
+                <div class="col">
+                  <label for="surname">Surname</label>
+                  <input id="surname" type="text" class="form-control" placeholder="Smith">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+            </div>
+          </div>
+          <hr class="my-5">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <h2>Children Attending Wave</h2>
+              <div class="form-group">
+    <label for="exampleFormControlSelect1">How many children will you be bringing to Wave?</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+            </div>
+          </div>
+          <hr class="my-5">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <div class="text-center">
+              <button class="btn btn-lg btn-primary" disabled>Submit</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="/resources/bootstrap-4.2.1/js/bootstrap.min.js" ></script>
 
   </html>
