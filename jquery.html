@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Wave Registration</title>
+
+  <link rel="stylesheet" href="/resources/bootstrap-4.2.1/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/resources/css.css" >
+
+</head>
+
+
+
+<script type="text/html" id="template">
+  <header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+      </video>
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3">Wave Kids</h1>
+            <p class="lead mb-0">Registration Form</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="my-5">
+    <div class="container">
+    <form action="process.php" method="POST">
+      <div data-content="author"></div>
+
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+
+
+            <p>Info for parents...   The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+            <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
+          </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2>Primary Contact Details</h2>
+            <div class="row form-group">
+              <div class="col">
+                <label for="primary-firstname">Firstname</label>
+                <input id="primary-firstname" type="text" class="form-control" name="primary-firstname" placeholder="John">
+              </div>
+              <div class="col">
+                <label for="primary-surname">Surname</label>
+                <input id="primary-surname" type="text" class="form-control" name="primary-surname" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="primary-email">Email address</label>
+              <input type="email" class="form-control" id="primary-email" name="primary-email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="primary-phone">Phone number</label>
+              <input type="mobile" class="form-control" id="primary-phone" name="primary-phone" placeholder="1234567890">
+            </div>
+          </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2>Children Attending Wave</h2>
+            <div class="form-group">
+    <label for="exampleFormControlSelect1">How many children will you be bringing to Wave?</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    </select>
+    </div>
+          </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2>Child 1</h2>
+
+            <div class="row form-group">
+              <div class="col">
+                <label for="primary-firstname">Firstname</label>
+                <input id="primary-firstname" type="text" class="form-control" name="primary-firstname" placeholder="John">
+              </div>
+              <div class="col">
+                <label for="primary-surname">Surname</label>
+                <input id="primary-surname" type="text" class="form-control" name="primary-surname" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="primary-email">Email address</label>
+              <input type="email" class="form-control" id="primary-email" name="primary-email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="primary-phone">Phone number</label>
+              <input type="mobile" class="form-control" id="primary-phone" name="primary-phone" placeholder="1234567890">
+            </div>
+          </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="text-center">
+          </div>
+          </div>
+        </div>
+      </form>
+      <button id="submit" class="btn btn-lg btn-primary">Submit</button>
+
+    </div>
+    </section>
+</script>
+
+<body>
+
+      <div id="form-container"></div>
+  </body>
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="/resources/bootstrap-4.2.1/js/bootstrap.min.js" ></script>
+    <script src="/resources/jquery-template/dist/jquery.loadTemplate.js"></script>
+
+
+
+
+    <script type="text/javascript">
+
+
+
+
+
+        $(function () {
+
+          function update(data) {
+            $("#form-container").loadTemplate($("#template"),
+              {
+                    author: data,
+                    date: '25th May 2013',
+                    post: 'This is the contents of my post'
+                })
+          }
+
+          let author = 'AUTHOR'
+          update(author)
+
+          $("#submit").click(function() {
+            author = 'clicked'
+
+            console.log(author)
+            update(author)
+          })
+
+
+
+
+
+          // Load the template with data
+          })
+        </script>
+
+
+  </html>

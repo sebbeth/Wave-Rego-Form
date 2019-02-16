@@ -3,33 +3,11 @@
 <head>
   <title>Wave Registration</title>
 
-  <link rel="stylesheet" href="/resources/bootstrap-4.2.1/css/bootstrap.min.css" >
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="/resources/css.css" >
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-<script>
-$(function () {
-
-$("#submit").click(function() {
-  console.log($("#primary-firstname").val())
-//  $("#primary-firstname").addClass("is-invalid");
-  $("form").submit();
-  });
-
-  $( "form" ).submit(function( event ) {
-    if ( $( "#primary-firstname" ).val() !== "" ) {
-      $("form").addClass("was-validated");
-      return;
-    }
-
-    $("#primary-firstname").addClass("is-invalid");
-    event.preventDefault();
-  });
-
-});
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 
-</script>
 
 
 </head>
@@ -51,10 +29,13 @@ $("#submit").click(function() {
     </header>
 
     <section class="my-5">
-      <form id="form" action="process.php" method="POST" class="needs-validation" novalidate>
-        <div class="container">
+      <div id="wave" class="container">
+      <form action="process.php" @submit="checkForm"  method="POST" class="was-validated">
           <div class="row">
             <div class="col-md-8 mx-auto">
+
+
+
               <p>Info for parents...   The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
               <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
             </div>
@@ -63,16 +44,19 @@ $("#submit").click(function() {
           <div class="row">
             <div class="col-md-8 mx-auto">
               <h2>Primary Contact Details</h2>
+              <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </p>
               <div class="row form-group">
                 <div class="col">
-                  <label for="primary-firstname">Firstname</label>
-                  <input id="primary-firstname" type="text" class="form-control" name="primary-firstname" placeholder="John">
+                  <label for="primaryFirstname">Firstname</label>
+                  <input id="primaryFirstname" v-model="primaryFirstname" type="text" class="form-control" name="primaryFirstname" placeholder="John">
                   <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  <div class="invalid-feedback">
-                    Required
-                  </div>
+        Looks good!
+      </div>
                 </div>
                 <div class="col">
                   <label for="primary-surname">Surname</label>
@@ -95,58 +79,75 @@ $("#submit").click(function() {
               <h2>Children Attending Wave</h2>
               <div class="form-group">
     <label for="exampleFormControlSelect1">How many children will you be bringing to Wave?</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select v-model="selected" class="form-control" id="exampleFormControlSelect1">
+      <option disabled value="">Children</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
       <option>5</option>
     </select>
+<span>Selected: {{ selected }}</span>
   </div>
             </div>
           </div>
           <hr class="my-5">
-          <div class="row">
-            <div class="col-md-8 mx-auto">
-              <h2>Child 1</h2>
-
-              <div class="row form-group">
-                <div class="col">
-                  <label for="primary-firstname">Firstname</label>
-                  <input id="primary-firstname" type="text" class="form-control" name="primary-firstname" placeholder="John">
-                </div>
-                <div class="col">
-                  <label for="primary-surname">Surname</label>
-                  <input id="primary-surname" type="text" class="form-control" name="primary-surname" placeholder="Smith">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="primary-email">Email address</label>
-                <input type="email" class="form-control" id="primary-email" name="primary-email" placeholder="name@example.com">
-              </div>
-              <div class="form-group">
-                <label for="primary-phone">Phone number</label>
-                <input type="mobile" class="form-control" id="primary-phone" name="primary-phone" placeholder="1234567890">
-              </div>
-            </div>
-          </div>
+          <child-details
+          v-bind:index="selected"
+          ></child-details>
           <hr class="my-5">
           <div class="row">
             <div class="col-md-8 mx-auto">
               <div class="text-center">
-              <button id="submit" class="btn btn-lg btn-primary">Submit</button>
+              <button class="btn btn-lg btn-primary">Submit</button>
             </div>
             </div>
           </div>
+        </form>
         </div>
-      </form>
-
     </section>
   </body>
 
+<!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="/resources/bootstrap-4.2.1/js/bootstrap.min.js" ></script> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+  <script>
+
+  Vue.component('child-details', {
+    props: ['index'],
+    template: '<div class="row"><div class="col-md-8 mx-auto"><h2>Child {{ index }}</h2></div></div>'
+  })
+
+  var app = new Vue({
+    el: '#wave',
+    data: {
+     errors: [],
+     selected: '',
+     primaryFirstname: null
+   },
+  methods:{
+    checkForm: function (e) {
+      if (this.name && this.age) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.primaryFirstname) {
+        this.errors.push('Firstname required.');
+      }
+
+      e.preventDefault();
+    }
+  }
+ })
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="/resources/bootstrap-4.2.1/js/bootstrap.min.js" ></script>
 
 
   </html>
