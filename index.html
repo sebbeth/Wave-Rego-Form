@@ -38,7 +38,7 @@
           </div>
           <div class="row">
             <div class="col-md-8 mx-auto">
-              Disable Validation <input id="validation-disabled" name="validation-disabled" type="checkbox"></input>
+              <code>Disable Validation</code> <input id="validation-disabled" name="validation-disabled" type="checkbox"></input>
             </div>
           </div>
           <hr class="my-5">
@@ -49,43 +49,43 @@
                 <div class="col">
                   <label for="primary-firstname">Firstname</label>
                   <input id="primary-firstname" type="text" class="form-control" name="primary-firstname" placeholder="John">
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  <div class="invalid-feedback">
-                    Required
-                  </div>
+                  <span class='invalid-feedback'></span>
                 </div>
                 <div class="col">
                   <label for="primary-surname">Surname</label>
                   <input id="primary-surname" type="text" class="form-control" name="primary-surname" placeholder="Smith">
+                  <span class='invalid-feedback'></span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="primary-email">Email address</label>
                 <input type="email" class="form-control" id="primary-email" name="primary-email" placeholder="name@example.com">
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
                 <label for="primary-phone">Phone number</label>
                 <input type="mobile" class="form-control" id="primary-phone" name="primary-phone" placeholder="1234567890">
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
                 <label for="primary-address">Home Address</label>
                 <!-- Could find a fancy address autofiller for this -->
                 <input type="text" class="form-control" id="primary-address" name="primary-address" placeholder="42 Wallaby way Sydney NSW">
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
-          <label for="heard-about-wave">How did you hear about WAVE?</label>
-          <select class="form-control" id="heard-about-wave">
-          <option>We were invited by friends</option>
-          <option>We got a note from School</option>
-          <option>We saw ads on Facebook/Movies</option>
-          <option>We heard about WAVE at Carols in Lambton Park</option>
-          <option>We regularly come to Hunter Bible Church</option>
-          <option>We usually attend another church</option>
-          <option>Other</option>
-          </select>
-          </div>
+                <label for="heard-about-wave">How did you hear about WAVE?</label>
+                <select class="form-control" id="heard-about-wave">
+                  <option>We were invited by friends</option>
+                  <option>We got a note from School</option>
+                  <option>We saw ads on Facebook/Movies</option>
+                  <option>We heard about WAVE at Carols in Lambton Park</option>
+                  <option>We regularly come to Hunter Bible Church</option>
+                  <option>We usually attend another church</option>
+                  <option>Other</option>
+                </select>
+                <span class='invalid-feedback'></span>
+              </div>
             </div>
 
 
@@ -96,35 +96,41 @@
             <div class="col-md-8 mx-auto">
               <h2>Children Attending Wave</h2>
               <div class="form-group">
-    <label for="exampleFormControlSelect1">How many children will you be bringing to Wave?</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
+                <label for="child-quantity">How many children will you be bringing to Wave?</label>
+                <select class="form-control" id="child-quantity" name="child-quantity">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <span class='invalid-feedback'></span>
+              </div>
             </div>
           </div>
           <hr class="my-5">
           <div class="row">
             <div class="col-md-8 mx-auto">
+              <code>This div will be duplicated n times based in input from child-quantity</code>
+              <code>Considering putting this in a multipart form so that the form isn't so long</code>
               <h2>Child 1</h2>
 
               <div class="row form-group">
                 <div class="col">
                   <label for="primary-firstname">Firstname</label>
-                  <input  type="text" class="form-control" id="1-firstname" name="1-firstname" placeholder="John">
+                  <input  type="text" class="form-control" id="1-firstname" name="1-firstname" placeholder="Firstname">
+                  <span class='invalid-feedback'></span>
                 </div>
                 <div class="col">
                   <label for="primary-surname">Surname</label>
-                  <input  type="text" class="form-control" id="1-surname" name="1-surname" placeholder="Smith">
+                  <input  type="text" class="form-control" id="1-surname" name="1-surname" placeholder="Surname">
+                  <span class='invalid-feedback'></span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="1-dob">Date of Birth</label>
                 <input  type="text" class="form-control" id="1-dob" name="1-dob" placeholder="20/01/2010">
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
                 <label for="1-gender">Gender</label>
@@ -133,13 +139,15 @@
                   <option>Male</option>
                   <option>Female</option>
                 </select>
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
                 <label for="1-address">Home Address</label>
                 <input type="text" class="form-control" id="1-address" name="1-address" placeholder="42 Wallaby way Sydney NSW">
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
-                <label for="1-section">WAVE Section -- This should be dynamic so that only sections + or - 2 years the child's age are shown</label>
+                <label for="1-section">WAVE Section <code>This should be dynamic so that only sections + or - 2 years the child's age are shown</code></label>
                 <select class="form-control" id="1-section" name="1-section">
                   <option value="0">Sprinkles [0-1YRS]</option>
                   <option value="1">TicTacs [2YRS]</option>
@@ -154,10 +162,11 @@
                   <option value="10">JuniorYth [SCH YRS 6-8]</option>
                   <option value="10">Senior Youth [SCH YRS 9-12]</option>
                 </select>
+                <span class='invalid-feedback'></span>
               </div>
               <div class="form-group">
                 <label>Allergy Information</label>
-                  <ul>
+                <ul>
                   <li><input id="1-allergy-dairy" name="1-allergy-dairy" type="checkbox"></input><label for="1-allergy-dairy" class="ml-1">Dairy</label></li>
                   <li><input id="1-allergy-eggs" name="1-allergy-eggs" type="checkbox"></input><label for="1-allergy-eggs" class="ml-1">Eggs</label></li>
                   <li><input id="1-allergy-bee" name="1-allergy-bee" type="checkbox"></input><label for="1-allergy-bee" class="ml-1">Bee Sting</label></li>
@@ -168,8 +177,8 @@
                 </ul>
               </div>
               <div class="form-group">
-              <label for="1-medical">Medical Information</label>
-              <textarea class="form-control" id="1-medical" name="1-medical" rows="3"></textarea>
+                <label for="1-medical">Medical Information</label>
+                <textarea class="form-control" id="1-medical" name="1-medical" rows="3"></textarea>
               </div>
             </div>
           </div>
@@ -179,12 +188,12 @@
             <div class="col-md-8 mx-auto">
               <p>Children may have video or photographs taken of them as they participate in various WAVE activities. These pictures may be used for the purpose of WAVE activities and/or promoting WAVE in the future. If your child is a special circumstance in regards to this, please email wavekids@hunterbiblechurch.org</p>
 
-<p>I understand that in the unlikely event of an emergency, if I cannot be contacted within an appropriate time, the WAVE Team medical doctor will take appropriate action for the good of my child/children.</p>
+              <p>I understand that in the unlikely event of an emergency, if I cannot be contacted within an appropriate time, the WAVE Team medical doctor will take appropriate action for the good of my child/children.</p>
 
-<p>I understand that each day of WAVE, once I have left my child/children in the care of the WAVE Team, I will be required to collect them between 11.30am and 12 noon that day (or arrange for them to be collected by another adult).</p>
-<div class="text-center">
-  <input id="consent" name="consent" type="checkbox"></input><label for="consent" class="ml-1"><strong>I Agree</strong></label>
-</div>
+              <p>I understand that each day of WAVE, once I have left my child/children in the care of the WAVE Team, I will be required to collect them between 11.30am and 12 noon that day (or arrange for them to be collected by another adult).</p>
+              <div class="text-center">
+                <input id="consent" name="consent" type="checkbox"></input><label for="consent" class="ml-1"><strong>I Agree</strong></label>
+              </div>
 
             </div>
           </div>
@@ -192,8 +201,11 @@
           <div class="row">
             <div class="col-md-8 mx-auto">
               <div class="text-center">
-              <button id="submit" class="btn btn-lg btn-primary">Submit</button>
-            </div>
+                <button id="submit" class="btn btn-lg btn-primary ">Submit</button>
+                <div id="submit-error-message" class="text-danger" style="display:none;">
+                  Some fields were not filled correctly, please correct the issues above.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -203,8 +215,8 @@
   </body>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
   </html>
